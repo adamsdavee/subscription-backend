@@ -4,7 +4,6 @@ const userModel = require("../models/user.model")
 
 const authorize = async (req, res, next) => {
    try {
-      console.log("In heree")
       let token
 
       if (

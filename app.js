@@ -10,6 +10,8 @@ const { connectToMongoDB } = require("./database/mongoDB")
 const PORT = process.env.PORT
 const app = express()
 
+app.set("trust proxy", true)
+
 app.use(express.json())
 
 app.use("/api/v1/auth", authRouter)
