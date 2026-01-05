@@ -11,7 +11,7 @@ const errorMiddleware = (err, req, res, next) => {
          error.statusCode = 404
       }
 
-      if (err.name == 11000) {
+      if (err.code == 11000) {
          const message = "Duplicate field value entered"
          error = new Error(message)
          error.statusCode = 400
@@ -23,7 +23,7 @@ const errorMiddleware = (err, req, res, next) => {
          error.statusCode = 404
       }
 
-      res.send(error.statusCode || 500).json({
+      res.status(error.statusCode || 500).json({
          success: "false",
          error: error.message || "Server error",
       })
